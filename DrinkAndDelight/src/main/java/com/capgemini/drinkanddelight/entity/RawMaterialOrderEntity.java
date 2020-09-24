@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "RawMaterialOrders") 
 public class RawMaterialOrderEntity {
 	    @Id    
-	    private  String  orderId;
+	    private  Integer  orderId;
 	    private String name;
 	    private String supplierId;
 	    private double quantityValue;
@@ -25,7 +25,7 @@ public class RawMaterialOrderEntity {
 			// TODO Auto-generated constructor stub
 		}
 
-		public RawMaterialOrderEntity(String orderId, String name, String supplierId, double quantityValue,
+		public RawMaterialOrderEntity(Integer orderId, String name, String supplierId, double quantityValue,
 				String quantityUnit, Date dateOfOrder, Date dateOfDelivery, double pricePerUnit, double totalPrice,
 				String deliveryStatus) {
 			super();
@@ -41,11 +41,11 @@ public class RawMaterialOrderEntity {
 			this.deliveryStatus = deliveryStatus;
 		}
 
-		public String getOrderId() {
+		public Integer getOrderId() {
 			return orderId;
 		}
 
-		public void setOrderId(String orderId) {
+		public void setOrderId(Integer orderId) {
 			this.orderId = orderId;
 		}
 
@@ -128,7 +128,6 @@ public class RawMaterialOrderEntity {
 					+ dateOfOrder + ", dateOfDelivery=" + dateOfDelivery + ", pricePerUnit=" + pricePerUnit
 					+ ", totalPrice=" + totalPrice + ", deliveryStatus=" + deliveryStatus + "]";
 		}
-	    
-		
+
 	    
 }
