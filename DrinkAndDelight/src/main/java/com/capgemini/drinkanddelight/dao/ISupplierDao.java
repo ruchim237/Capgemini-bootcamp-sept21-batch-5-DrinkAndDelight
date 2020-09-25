@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.capgemini.drinkanddelight.entity.Supplier;
 
-public class ISupplierDao {
 	@Repository
-	public interface SupplierDao extends JpaRepository<Supplier, Integer> {
+	public interface ISupplierDao extends JpaRepository<Supplier, Integer> {
 
 	}
-}
