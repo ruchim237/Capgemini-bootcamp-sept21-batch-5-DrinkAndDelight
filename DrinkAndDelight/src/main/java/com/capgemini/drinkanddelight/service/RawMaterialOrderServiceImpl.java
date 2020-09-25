@@ -21,19 +21,17 @@ public class RawMaterialOrderServiceImpl implements IRawMaterialOrderService{
     
 	@Override
 	public RawMaterialOrderEntity addRawMaterialOrder(RawMaterialOrderEntity rawMaterialOrder) {
-				 Date date = new Date();
-				 rawMaterialOrder.setDateOfOrder(date);
-				 Calendar calendar=Calendar.getInstance();
-			     calendar.add(Calendar.DAY_OF_MONTH,7);
-			     Date deliveryDate=calendar.getTime();
-			     rawMaterialOrder.setDateOfDelivery(deliveryDate);
-			        
-				 double pricePerUnit = rawMaterialOrder.getPricePerUnit();
-				 double quantityValue = rawMaterialOrder.getQuantityValue();
-				 double totalPrice = pricePerUnit * quantityValue;
-				 rawMaterialOrder.setTotalPrice(totalPrice);
-				
-				 return	IRawMaterialOrderDao.save( rawMaterialOrder);
+		Date date = new Date();
+	    rawMaterialOrder.setDateOfOrder(date);
+		Calendar calendar=Calendar.getInstance();
+	    calendar.add(Calendar.DAY_OF_MONTH,7);
+		Date deliveryDate=calendar.getTime();
+	    rawMaterialOrder.setDateOfDelivery(deliveryDate);			        
+		double pricePerUnit = rawMaterialOrder.getPricePerUnit();
+		double quantityValue = rawMaterialOrder.getQuantityValue();
+		double totalPrice = pricePerUnit * quantityValue;
+		rawMaterialOrder.setTotalPrice(totalPrice);
+		return	IRawMaterialOrderDao.save( rawMaterialOrder);
 	}
 
 	

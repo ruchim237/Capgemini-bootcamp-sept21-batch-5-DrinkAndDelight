@@ -22,7 +22,7 @@ import com.capgemini.drinkanddelight.service.RawMaterialOrderServiceImpl;
 @RestController
 //@CrossOrigin(origins="http://localhost:4200")
 //maps HTTP request with a path to a controller method
-@RequestMapping(value = "/rawMaterial") 
+@RequestMapping(value = "/rawmaterial") 
 public class RawMaterialOrderController {
 	
 	 @Autowired
