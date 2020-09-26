@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.capgemini.drinkanddelight.entity.RawMaterialOrderEntity;
 import com.capgemini.drinkanddelight.service.RawMaterialOrderServiceImpl;
+
 /*
  * 
  * @Author
@@ -60,12 +60,11 @@ public class RawMaterialOrderController {
 		 RawMaterialOrderEntity rawMaterialOrder=service.getRawMaterialOrder(orderId);
 	           return rawMaterialOrder;
 		}
-
 	 
+
 	 @PutMapping(value="/orders")
-		public RawMaterialOrderEntity updateOrders(@RequestParam("orderId") int orderId,@RequestParam("deliveryStatus") String deliveryStatus) {
-		 RawMaterialOrderEntity rawMaterialOrder=service.updateRawMaterialOrder(orderId, deliveryStatus);
-		 return rawMaterialOrder;		
+	 public RawMaterialOrderEntity updateOrders(@RequestBody RawMaterialOrderEntity rawMaterialOrder) {
+			return service.updateRawMaterialOrder(rawMaterialOrder);		
 			}
 
 }

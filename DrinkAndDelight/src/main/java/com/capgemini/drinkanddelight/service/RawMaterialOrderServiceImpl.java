@@ -3,7 +3,6 @@ package com.capgemini.drinkanddelight.service;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,18 +41,17 @@ public class RawMaterialOrderServiceImpl implements IRawMaterialOrderService{
 
 	
 	@Override
-	public RawMaterialOrderEntity updateRawMaterialOrder(Integer orderId, String deliveryStatus) {
-		Optional<RawMaterialOrderEntity> optional= IRawMaterialOrderDao.findById(orderId);
-		 if(optional.isPresent())
-		 {
-			 RawMaterialOrderEntity order = optional.get();
-			 order.setOrderId(orderId);
-			 order.setDeliveryStatus(deliveryStatus);
-			 return order;
+	public RawMaterialOrderEntity updateRawMaterialOrder(RawMaterialOrderEntity rawMaterialOrder) {
+		RawMaterialOrderEntity updateOrders =IRawMaterialOrderDao.save(rawMaterialOrder);
+		    if(updateOrders!=null)
+			{
+			return IRawMaterialOrderDao.save(rawMaterialOrder);		
+			}
+			else
+			{
+			throw new RawMaterialOrderNotFoundException("OrderId  does not exist.");
+			}
 		 }
-		 throw new RawMaterialOrderNotFoundException("Order Id doesn't exist");		
-		
-	}
 
 	
 	@Override

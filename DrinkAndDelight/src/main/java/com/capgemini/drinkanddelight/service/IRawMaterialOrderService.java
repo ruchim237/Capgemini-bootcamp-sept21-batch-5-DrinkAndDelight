@@ -7,6 +7,6 @@ public interface IRawMaterialOrderService {
 	public RawMaterialOrderEntity addRawMaterialOrder(RawMaterialOrderEntity rawMaterialOrder);
 	public RawMaterialOrderEntity getRawMaterialOrder(int orderId);
 	public void cancelOrder(int orderId);
-	public RawMaterialOrderEntity updateRawMaterialOrder(Integer orderId, String deliveryStatus);
+	public RawMaterialOrderEntity updateRawMaterialOrder(RawMaterialOrderEntity rawMaterialOrder);
 	public List<RawMaterialOrderEntity> displayRawMaterialOrder();
 }
